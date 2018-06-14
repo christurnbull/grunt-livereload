@@ -30,7 +30,7 @@ grunt.initConfig({
         options: {
             port: 9000,
             livereload: 35729,
-            hostname: '192.168.1.217',
+            hostname: '192.168.0.1',
 			protocol: 'https',
 			key: grunt.file.read('cert/localDevSite.key').toString(),
 			cert: grunt.file.read('cert/localDevSite.crt').toString(),
