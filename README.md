@@ -12,11 +12,11 @@ Works on Chrome 60+
 
 ## Getting Started
 
-Ensure [Grunt] is installed(https://gruntjs.com/)
+Ensure [Grunt](https://gruntjs.com/) is installed
 
 ```bash
 git clone https://github.com/christurnbull/grunt-livereload.git
-npm install
+cd grunt-livereload && npm install
 npm start
 ```
 
@@ -29,6 +29,7 @@ You then need to create a multi-domain certificate for the livereload server to 
 
 #### Create CA certificate & key (or skip this and use the files provided in cert folder):
 ```bash
+cd cert/
 openssl genrsa -des3 -out localDevCA.key 2048
 openssl rsa -in localDevCA.key -out localDevCA.key
 openssl req -x509 -new -nodes -key localDevCA.key -sha256 -days 1825 -out localDevCA.crt
@@ -42,13 +43,13 @@ android: phone settings -> security -> credential storage -> install from...
 ```
 
 #### Create Site certifcate & key using CA:
-```bash
-openssl genrsa -out localDevSite.key 2048
-openssl req -new -key localDevSite.key -out localDevSite.csr
-```
+
 Add or edit the local network IP of the server to the config file cert/localDevSite.ext
 
 ```bash
+cd cert/
+openssl genrsa -out localDevSite.key 2048
+openssl req -new -key localDevSite.key -out localDevSite.csr
 openssl x509 -req -in localDevSite.csr -CA localDevCA.crt -CAkey localDevCA.key -CAcreateserial -out localDevSite.crt -days 1825 -sha256 -extfile localDevSite.ext
 ```
 
