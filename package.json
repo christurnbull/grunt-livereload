@@ -7,7 +7,7 @@
     "start": "grunt serve"
   },
   "author": "Chris Turnbull",
-  "license": "MIT"
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^1.0.1",
     "load-grunt-tasks": "^3.5.2",
