@@ -13,7 +13,10 @@ grunt.initConfig({
     watch: {
         livereload: {
             options: {
-                livereload: '<%= connect.options.livereload %>'
+			  livereload: {
+				key: '<%= connect.options.key %>',
+				cert: '<%= connect.options.cert %>'
+			  }
             },
             files: [
               __dirname+'/*.html',
@@ -27,12 +30,15 @@ grunt.initConfig({
         options: {
             port: 9000,
             livereload: 35729,
-            hostname: 'localhost'
+            hostname: '192.168.0.1',
+			protocol: 'https',
+			key: grunt.file.read('cert/localDevSite.key').toString(),
+			cert: grunt.file.read('cert/localDevSite.crt').toString(),
         },
         livereload: {
             options: {
                 open: true,
-                base: [__dirname]
+                base: ['src']
             }
         },
     },
