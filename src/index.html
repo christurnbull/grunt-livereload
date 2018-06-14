@@ -7,5 +7,16 @@
   </head>
   <body>
 	<div></div>
+    
+    <script src="js/vendor.js"></script>
+    <script>
+      (function() {
+        if(!isMobile.any){
+          var qrc = document.createElement('canvas');
+          document.body.appendChild(qrc);
+          new QRious({ element: qrc, size: 200, value: window.origin });
+        }
+      })();
+    </script>
   </body>
 </html>

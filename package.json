@@ -9,9 +9,14 @@
   "author": "Chris Turnbull",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "load-grunt-tasks": "^3.5.2",
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-watch": "^1.1.0"
+    "grunt-contrib-watch": "^1.1.0",
+    "load-grunt-tasks": "^3.5.2"
+  },
+  "dependencies": {
+    "ismobilejs": "^0.4.1",
+    "qrious": "^4.0.2"
   }
 }

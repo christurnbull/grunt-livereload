@@ -19,9 +19,9 @@ grunt.initConfig({
 			  }
             },
             files: [
-              __dirname+'/*.html',
-              __dirname+'/css/*.css',
-              __dirname+'/js/*.js',
+              'src/*.html',
+              'src/css/*.css',
+              'src/js/*.js',
             ]
         }
     },
@@ -30,7 +30,7 @@ grunt.initConfig({
         options: {
             port: 9000,
             livereload: 35729,
-            hostname: '192.168.0.1',
+            hostname: '192.168.1.217',
 			protocol: 'https',
 			key: grunt.file.read('cert/localDevSite.key').toString(),
 			cert: grunt.file.read('cert/localDevSite.crt').toString(),
@@ -42,9 +42,23 @@ grunt.initConfig({
             }
         },
     },
+    concat: {
+      options:{
+        separator: ';'
+      },
+      js:{
+        dest: 'src/js/vendor.js',
+        src: [
+          'node_modules/ismobilejs/isMobile.min.js',
+          'node_modules/qrious/dist/qrious.min.js',
+        ]
+      }
+    }
 });
+grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.registerTask('serve', function (target) {
     grunt.task.run([
+        'concat:js',
         'connect:livereload',
         'watch'
         ]);
